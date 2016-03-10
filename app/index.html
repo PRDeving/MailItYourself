@@ -1,0 +1,256 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-image: url("assets/img/bg.png");
+            }
+
+            .splash {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                z-index: 9999;
+
+                background-color: white;
+            }
+            .fullwidth {
+                width: 100%;
+            }
+            .centered {
+                text-align: center;
+                margin: auto;
+            }
+            .toolbar {
+                width: 100%;
+                height: 30px;
+
+                position: fixed;
+                top: 0px;
+                left: 0px;
+
+                background-color: #999;
+                border-bottom: 1px solid #666;
+                -webkit-box-shadow: 0px 13px 38px -4px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 13px 38px -4px rgba(0,0,0,0.75);
+                box-shadow: 0px 13px 38px -4px rgba(0,0,0,0.75);
+            }
+            .toolbar ul {
+                width: 150px;
+                height: 10px;
+                float: left;
+
+                margin: 0;
+                padding: 10px;
+                text-align: center;
+
+                overflow: hidden;
+                cursor: pointer;
+
+                background: #999;
+                border-left: 1px solid #666;
+            }
+            .toolbar ul:last-child {
+                border-right: 1px solid #666;
+            }
+            .toolbar ul:hover {
+                height: auto;
+            }
+            .toolbar ul label {
+                font-weight: bold;
+                border-bottom: 1px solid #888;
+            }
+            .toolbar ul li {
+                width: 100%;
+            }
+            .toolbar ul li.item, .toolbar div.pident {
+                height: 100%;
+                display: inline-block;
+                float: left;
+                margin: 0;
+            }
+            .toolbar ul li.item:not(.disabled):hover {
+                background-color: rgba(0,0,0,0.1);
+                cursor: pointer;
+            }
+            .toolbar ul li.item.disabled {
+                color: grey;
+                cursor: default;
+            }
+            .toolbar ul li.item p, .toolbar div.pident p{
+                margin: 0;
+                padding: 8px;
+            }
+
+            #main-canvas {
+                width: 580px;
+                min-height: 600px;
+                margin: 50px auto;
+                padding: 0px;
+
+                background-color: #999;
+                background-image: url("assets/img/pattern.png");
+                background-size: 30%;
+                border: 1px solid #444;
+            }
+
+            #contextmenu {
+                width: 200px;
+                min-height: 100px;
+
+                margin: 0;
+                padding: 0;
+
+                text-align: center;
+
+                display: none;
+                position: absolute;
+
+                background: #999;
+                border: 1px solid #666;
+                -webkit-box-shadow: 0px 13px 38px -4px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 13px 38px -4px rgba(0,0,0,0.75);
+                box-shadow: 0px 13px 38px -4px rgba(0,0,0,0.75);
+            }
+            #contextmenu ul {
+                list-style: none;
+                width: 100%;
+
+                margin: 0;
+                padding: 0;
+            }
+            #contextmenu ul li {
+                width: 100%;
+
+                margin: 0;
+                padding: 0;
+            }
+            #contextmenu ul li:hover{
+                background: #888;
+            }
+
+            #AskFor {
+                width: 300px;
+                max-height: 400px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                padding: 50px 10px;
+
+                text-align: center;
+
+                position: fixed;
+                top: 50px;
+                left: calc(50% - 150px);
+                display: none;
+
+                background: #999;
+                border: 1px solid #666;
+                -webkit-box-shadow: 0px 13px 38px -4px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 13px 38px -4px rgba(0,0,0,0.75);
+                box-shadow: 0px 13px 38px -4px rgba(0,0,0,0.75);
+            }
+            #AskFor #list p {
+                width: 100%;
+                height: 20px;
+            }
+            #AskFor #list p span {
+                width: 48%;
+                float: left;
+            }
+            #AskFor #list p input {
+                width: 48%;
+                float: right;
+            }
+
+            .miy-module:hover {
+                cursor: pointer;
+                outline: 2px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="splash" id="loading">
+            <div class="centered">
+                <img src="assets/img/loading.gif"/>
+            </div>
+        </div>
+        
+        <div class="fullwidth" id="main-content">
+            <div class="toolbar" id="main-toolbar">
+                <div class="pident"><p><span></span></p></div>
+                <ul id="Archive"><label>Archive</label></ul>
+                <ul id="Edit"><label>Edit</label></ul>
+            </div>
+            <div id="main-canvas" class="main-canvas">
+
+
+                    <table class="body" width="100%" border="0" cellpadding="0" cellspacing="0" style="">
+                        <tbody>
+                            <tr>
+                                <td class="center" align="center" valign="top">
+                                    <!--< ! - - [ i f   m s  o ] > < ! - - >-->
+                                    <!-- CENTER IN OUTLOOK -->
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                        <tbody><tr>
+                                            <td align="center">
+                                                <table class="table-outlook" width="580" border="0" cellspacing="0" cellpadding="0" style="padding: 0; margin: 0;">
+                                                    <tbody><tr>
+                                                        <td>
+                                    <!--< ! - - < ! [ e n d i f ] - - >-->
+                                <center>
+                                    <!-- .box-container MAIN CONTAINER FOR CENTER THE CONTENT -->
+                                    <div class="content" style="max-width: 580px; margin: auto; padding: 0; margin: 0; background: #ffffff;">
+
+                                        <!-- BGTABLE -->
+                                        <table id="miy-basetable" class="bgtable" width="580" bgcolor="#24170B" border="0" cellspacing="0" cellpadding="0" style="width: 580px; padding: 0; margin: 0;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                        <!-- end BGTABLE -->
+
+
+                                        <!-- BGTABLE -->
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- end BGTABLE -->
+
+
+                                    </div>
+                                </center>
+                                
+                                <!--< ! - - [ i f   m s  o ] > < ! - - >-->
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                                <!--! end CENTER IN OUTLOOK --> 
+                                <!--< ! - - < ! [ e n d i f ] - - >-->
+                                
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+
+            </div>
+            
+            <div id="contextmenu">
+                <ul></ul>
+            </div>
+
+            <div id="AskFor">
+                <div id="list"></div>
+                <div id="submit">SUBMIT</div>
+            </div>
+        </div>
+        <script app="application.js" src="SGE/engine.js"></script>
+    </body>
+</html>

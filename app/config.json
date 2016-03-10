@@ -1,0 +1,9 @@
+{
+    "Debug": true,
+    "modules": [
+        "scenemanager"
+    ],
+    "dependencies": [
+        "lib/pdb.js"
+    ]
+}
